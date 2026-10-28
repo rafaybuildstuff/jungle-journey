@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://fwakvbdnk18c"]
+
+[ext_resource type="Script" uid="uid://rkmn75mrj36w" path="res://broadcast_banner.gd" id="1_7xm0f"]
+[ext_resource type="FontFile" uid="uid://dpraaclvyj4et" path="res://assets/text.ttf" id="2_b33lv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8st87"]
+bg_color = Color(0.07284262, 0.072842635, 0.072842576, 1)
+
+[node name="BroadcastBanner" type="CanvasLayer" unique_id=552881163]
+process_mode = 3
+script = ExtResource("1_7xm0f")
+
+[node name="BannerContainer" type="Control" parent="." unique_id=850488761]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="BannerContainer" unique_id=1973015531]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.15
+anchor_bottom = -0.15
+offset_left = 322.0
+offset_top = 496.0
+offset_right = 880.0
+offset_bottom = 613.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8st87")
+
+[node name="Label" type="Label" parent="BannerContainer" unique_id=1714300252]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 504.0
+offset_right = 833.0
+offset_bottom = 587.0
+theme_override_fonts/font = ExtResource("2_b33lv")
+theme_override_font_sizes/font_size = 15
+text = "\"Girlfriend :
+I don't think this wood is gonna be enough to keepthe campfire burning all night. Could you head out and gather a few more logs?\""
+autowrap_mode = 3
