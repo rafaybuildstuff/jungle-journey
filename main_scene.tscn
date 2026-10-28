@@ -1,3 +1,44 @@
 [gd_scene format=3 uid="uid://c3d18abu11ekq"]
 
+[ext_resource type="PackedScene" uid="uid://dvbwklbmra4qc" path="res://scene/player.tscn" id="1_2c62f"]
+[ext_resource type="Texture2D" uid="uid://dacvs0xigr8eg" path="res://assets/forest blocks.png" id="2_gyfs4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d5x1h"]
+texture = ExtResource("2_gyfs4")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+
+[sub_resource type="TileSet" id="TileSet_mel2l"]
+tile_size = Vector2i(40, 40)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_d5x1h")
+
 [node name="main scene" type="Node2D" unique_id=1700459879]
+
+[node name="player" parent="." unique_id=1824083999 instance=ExtResource("1_2c62f")]
+position = Vector2(92, -6)
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=785782172]
+position = Vector2(27, -82)
+zoom = Vector2(1.5, 1.5)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=308362447]
+tile_set = SubResource("TileSet_mel2l")
+rendering_quadrant_size = 40
+format = 2
+layer_0/tile_data = PackedInt32Array(131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0)
