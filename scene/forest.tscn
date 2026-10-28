@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://4h0jm1q5yn6j"]
+
+[ext_resource type="PackedScene" uid="uid://dvbwklbmra4qc" path="res://scene/player.tscn" id="1_e2knd"]
+[ext_resource type="Texture2D" uid="uid://dacvs0xigr8eg" path="res://assets/forest blocks.png" id="2_2xpkg"]
+[ext_resource type="Texture2D" uid="uid://dao6vp2e8mhdx" path="res://assets/background (1).png" id="3_gbfvw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbfvw"]
+texture = ExtResource("2_2xpkg")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.050535, -4.136751, -11.470707, -3.8235683, -8.273502, -8.273502, 20, 13.669266, 20, 20, -12.426598, 20)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, 13.382492, 11.470707, -11.470707, 12.107967, 20, -20, 20)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+
+[sub_resource type="TileSet" id="TileSet_d5frc"]
+tile_size = Vector2i(40, 40)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gbfvw")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqnte"]
+texture = ExtResource("3_gbfvw")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wqnte"]
+tile_size = Vector2i(10, 10)
+sources/0 = SubResource("TileSetAtlasSource_wqnte")
+
+[node name="ForestScene" type="Node2D" unique_id=1513906253]
+
+[node name="player" parent="." unique_id=1824083999 instance=ExtResource("1_e2knd")]
+position = Vector2(61, 7)
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=628853134]
+position = Vector2(81, -100)
+zoom = Vector2(1.5, 1.5)
+limit_left = -250
+limit_top = -300
+limit_bottom = 126
+
+[node name="blocks" type="Node" parent="." unique_id=1156483393]
+
+[node name="tiles" type="TileMap" parent="blocks" unique_id=379099133]
+tile_set = SubResource("TileSet_d5frc")
+rendering_quadrant_size = 40
+format = 2
+layer_0/tile_data = PackedInt32Array(131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 196602, 65536, 0, 196603, 65536, 0, 196604, 65536, 0, 196605, 65536, 0, 196606, 65536, 0, 196607, 65536, 0, 131072, 65536, 0, 131073, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0, 131079, 65536, 0, 131080, 65536, 0, 131081, 65536, 0, 131082, 65536, 0, 131083, 65536, 0, 131084, 65536, 0, 131085, 65536, 0, 131086, 65536, 0, 131087, 65536, 0, 65552, 65536, 0, 131088, 65536, 0, 65553, 65536, 0, 131089, 65536, 0, 65554, 65536, 0, 131090, 65536, 0, 65555, 65536, 0, 131091, 65536, 0, 65556, 65536, 0, 131092, 65536, 0, 65557, 65536, 0, 131093, 65536, 0, 65558, 65536, 0, 131094, 65536, 0, 65559, 65536, 0, 131095, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 131065, 0, 0, 196601, 65536, 0, 65528, 0, 0, 131064, 0, 0, 196600, 0, 0, -196616, 0, 0, -131080, 0, 0, -65544, 0, 0, -8, 0, 0)
+
+[node name="background" type="TileMap" parent="blocks" unique_id=1349454411]
+z_index = -2
+tile_set = SubResource("TileSet_wqnte")
+rendering_quadrant_size = 10
+format = 2

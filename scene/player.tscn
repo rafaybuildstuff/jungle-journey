@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://dvbwklbmra4qc"]
 
 [ext_resource type="Script" uid="uid://benxnw5eukmyc" path="res://scene/player.gd" id="1_fvtld"]
+[ext_resource type="Texture2D" uid="uid://s1gncuargwyw" path="res://assets/hang.png" id="2_ct4mp"]
 [ext_resource type="Texture2D" uid="uid://chj66df8mp0w7" path="res://assets/player.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://b7g5pgfyo5mxr" path="res://assets/player jump.png" id="3_sweqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4jxa"]
+atlas = ExtResource("2_ct4mp")
+region = Rect2(0, 0, 1008, 1072)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("2_hqtel")
@@ -30,6 +35,14 @@ region = Rect2(0, 60, 60, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mel2l"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4jxa")
+}],
+"loop": 1,
+"name": &"hanging",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2hs0m")
