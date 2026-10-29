@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci6gkqncb5lqb"
-path="res://.godot/imported/wolf and his movement.png-f2dd797a7309cb5e2aae85784c6b202e.ctex"
+uid="uid://bhgci2bhlbfyf"
+path="res://.godot/imported/new asets.png-542240aeef56c7f85f4551b0df75fea9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wolf and his movement.png"
-dest_files=["res://.godot/imported/wolf and his movement.png-f2dd797a7309cb5e2aae85784c6b202e.ctex"]
+source_file="res://assets/new asets.png"
+dest_files=["res://.godot/imported/new asets.png-542240aeef56c7f85f4551b0df75fea9.ctex"]
 
 [params]
 

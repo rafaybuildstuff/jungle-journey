@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bh7v8t58bmmn1"]
+
+[ext_resource type="Script" uid="uid://dey2q8nwr3502" path="res://throwable_weapon.gd" id="1_lqy7w"]
+[ext_resource type="Texture2D" uid="uid://dfm1f2bbdnxfe" path="res://weapon.png" id="2_lqgxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mel2l"]
+size = Vector2(16.20416, 24.008682)
+
+[node name="ThrowableWeapon" type="Area2D" unique_id=804450821]
+script = ExtResource("1_lqy7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1740913164]
+texture = ExtResource("2_lqgxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1458655510]
+position = Vector2(-1.7238678, 4.2513695)
+rotation = 0.8377581
+shape = SubResource("RectangleShape2D_mel2l")
