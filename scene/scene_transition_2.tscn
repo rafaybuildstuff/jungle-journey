@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://die0oav5ep8t7"]
+
+[sub_resource type="GDScript" id="GDScript_an8og"]
+script/source = "extends CanvasLayer
+
+@onready var color_rect: ColorRect = $ColorRect
+
+func _ready() -> void:
+	# Ensure the transition overlay starts invisible and transparent when the game boots
+	color_rect.modulate.a = 0.0
+	color_rect.visible = false
+
+func change_scene_to_file(target_scene: String) -> void:
+	# 1. Make visible and fade to black
+	color_rect.visible = true
+	var tween_out = create_tween()
+	tween_out.tween_property(color_rect, \"modulate:a\", 1.0, 0.5)
+	await tween_out.finished
+	
+	# 2. Change the scene while the screen is black
+	get_tree().change_scene_to_file(target_scene)
+	
+	# 3. Fade back in from black
+	var tween_in = create_tween()
+	tween_in.tween_property(color_rect, \"modulate:a\", 0.0, 0.5)
+	await tween_in.finished
+	
+	# Hide it again so it doesn't block gameplay input
+	color_rect.visible = false
+"
+
+[node name="SceneTransition2" type="CanvasLayer" unique_id=552647831]
+script = SubResource("GDScript_an8og")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=241176182]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

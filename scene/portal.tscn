@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d1t0jecbodgla"]
+
+[ext_resource type="Script" uid="uid://dres16d273n3c" path="res://portal.gd" id="1_pno75"]
+[ext_resource type="Texture2D" uid="uid://b2e481uo2ygi2" path="res://assets/forest portal.png" id="2_cfsmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mel2l"]
+size = Vector2(40, 45)
+
+[node name="Portal" type="Area2D" unique_id=1882410509]
+script = ExtResource("1_pno75")
+target_scene = "uid://we3d613uvhg5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2053060904]
+texture = ExtResource("2_cfsmh")
+region_enabled = true
+region_rect = Rect2(0, 0, 70, 71.34712)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1975473205]
+position = Vector2(-7, 11.5)
+shape = SubResource("RectangleShape2D_mel2l")

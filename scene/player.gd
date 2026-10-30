@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 200.0
-@export var jump_velocity: float = -400.0
+@export var jump_velocity: float = -300.0
 
 @export var max_lives: int = 3
 var current_lives: int = 3
@@ -112,3 +112,7 @@ func die() -> void:
 
 func _reload_level() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_teleport_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
