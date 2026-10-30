@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dvbwklbmra4qc"]
 
 [ext_resource type="Script" uid="uid://benxnw5eukmyc" path="res://scene/player.gd" id="1_fvtld"]
-[ext_resource type="Texture2D" uid="uid://s1gncuargwyw" path="res://assets/hang.png" id="2_ct4mp"]
+[ext_resource type="Texture2D" uid="uid://5epkkv4f1mr2" path="res://assets/hang (2).png" id="2_ct4mp"]
 [ext_resource type="Texture2D" uid="uid://chj66df8mp0w7" path="res://assets/player.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://b7g5pgfyo5mxr" path="res://assets/player jump.png" id="3_sweqy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s4jxa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
 atlas = ExtResource("2_ct4mp")
-region = Rect2(0, 0, 1008, 1072)
+region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("2_hqtel")
@@ -37,7 +37,7 @@ region = Rect2(0, 60, 60, 60)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s4jxa")
+"texture": SubResource("AtlasTexture_ct4mp")
 }],
 "loop": 1,
 "name": &"hanging",
@@ -90,7 +90,7 @@ script = ExtResource("1_fvtld")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=121243141]
 sprite_frames = SubResource("SpriteFrames_mel2l")
-animation = &"idle"
+animation = &"hanging"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=888201303]
 position = Vector2(-3, 0)
