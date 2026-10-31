@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 @export var jump_velocity: float = -350.0
 
-@export var max_lives: int = 3
-var current_lives: int = 3
+@export var max_lives: int = 1
+var current_lives: int = 1
 
 @export var weapon_scene: PackedScene = preload("res://scene/throwable_weapon.tscn")
 

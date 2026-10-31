@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://die0oav5ep8t7"]
+
+[sub_resource type="GDScript" id="GDScript_an8og"]
+script/source = "extends CanvasLayer
+
+@onready var color_rect: ColorRect = $ColorRect
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	if color_rect:
+		color_rect.modulate.a = 0.0
+
+func change_scene_to_file(target_scene: String) -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+	# 1. Fade to Black (Smooth Tween)
+	if color_rect:
+		var tween_out = create_tween().set_pause_mode(Tween.PAUSE_MODE_PROCESS)
+		tween_out.tween_property(color_rect, \"modulate:a\", 1.0, 0.4)
+		await tween_out.finished
+
+	# 2. Change the actual scene file
+	get_tree().change_scene_to_file(target_scene)
+
+	# 3. Fade back to transparent (Smooth Tween)
+	if color_rect:
+		var tween_in = create_tween().set_pause_mode(Tween.PAUSE_MODE_PROCESS)
+		tween_in.tween_property(color_rect, \"modulate:a\", 0.0, 0.4)
+		await tween_in.finished
+"
+
+[node name="SceneTransition2" type="CanvasLayer" unique_id=552647831]
+script = SubResource("GDScript_an8og")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=241176182]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1152386131]

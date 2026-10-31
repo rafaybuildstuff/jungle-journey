@@ -86,4 +86,5 @@ func die() -> void:
 # --- PLAYER COLLISION METHOD ---
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		get_tree().change_scene_to_file("res://scene/main_scene.tscn")
+		# Automatically reloads whichever scene the player is currently in (e.g., your cave scene)
+		get_tree().reload_current_scene()

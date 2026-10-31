@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b146g3onbmhke"]
+
+[ext_resource type="FontFile" uid="uid://dpraaclvyj4et" path="res://assets/text.ttf" id="1_tder4"]
+[ext_resource type="Script" uid="uid://6hxshb872d6x" path="res://scene/broadcast_banner_1.gd" id="1_ylkd3"]
+
+[node name="BroadcastBanner1" type="CanvasLayer" unique_id=1481219920]
+script = ExtResource("1_ylkd3")
+
+[node name="BannerContainer" type="Control" parent="." unique_id=1785544226]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="BannerContainer" unique_id=89508311]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 475.0
+offset_right = 723.0
+offset_bottom = 587.0
+
+[node name="Label" type="Label" parent="BannerContainer" unique_id=1794015383]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 493.0
+offset_right = 788.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("1_tder4")
+theme_override_font_sizes/font_size = 24
+text = "Me :
+    Whaoo! Whats That"

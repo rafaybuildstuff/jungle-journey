@@ -141,6 +141,7 @@ text = "-->"
 
 [node name="background" type="AudioStreamPlayer2D" parent="." unique_id=1319643798]
 stream = ExtResource("10_86xya")
-volume_db = 10.0
+volume_db = 5.0
+autoplay = true
 
 [connection signal="body_entered" from="TeleportArea" to="TeleportArea" method="_on_body_entered"]
