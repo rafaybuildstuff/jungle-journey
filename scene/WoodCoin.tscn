@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cp8m6mhpg8xrb"]
+
+[ext_resource type="Script" uid="uid://ct23d82yh7gi7" path="res://wood_coin.gd" id="1_to0ov"]
+[ext_resource type="Texture2D" uid="uid://b3pr6lqmjvw86" path="res://assets/log .png" id="2_36q7g"]
+[ext_resource type="AudioStream" uid="uid://25ru0htlvp5q" path="res://music/wood collected.mp3" id="3_ygsmg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mel2l"]
+radius = 7.0
+height = 42.0
+
+[node name="WoodCoin" type="Area2D" unique_id=1879951234]
+script = ExtResource("1_to0ov")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1607993195]
+texture = ExtResource("2_36q7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1918758275]
+position = Vector2(0, -1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_mel2l")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1712993269]
+stream = ExtResource("3_ygsmg")
+volume_db = 15.0

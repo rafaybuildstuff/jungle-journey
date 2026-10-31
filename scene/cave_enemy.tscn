@@ -40,3 +40,7 @@ shape = SubResource("CircleShape2D_mel2l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=656779526]
 position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_lxoxb")
+
+[node name="WallRay" type="RayCast2D" parent="." unique_id=1591149880]
+position = Vector2(-16, 0)
+target_position = Vector2(0, 20)

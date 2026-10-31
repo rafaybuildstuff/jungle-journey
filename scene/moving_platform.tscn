@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://m1mucip6sgw4"]
+
+[ext_resource type="Texture2D" uid="uid://c3o5keaym36k1" path="res://assets/cave blocks.png" id="1_lenne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cfvr"]
+size = Vector2(41, 23)
+
+[node name="moving platform" type="StaticBody2D" unique_id=2144280167]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=717648334]
+texture = ExtResource("1_lenne")
+region_enabled = true
+region_rect = Rect2(0, 91.72372, 45.105286, 28.276283)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1638268401]
+position = Vector2(-2.5, 2.5)
+shape = SubResource("RectangleShape2D_3cfvr")

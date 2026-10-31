@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://biybixp2sg62g" path="res://scene/wolf.tscn" id="7_fk3cu"]
 [ext_resource type="PackedScene" uid="uid://b53it3yg3e78m" path="res://scene/vine.tscn" id="8_qxlj4"]
 [ext_resource type="Script" uid="uid://bpct1kine7nhf" path="res://scene/teleport_area.gd" id="10_jxvlp"]
+[ext_resource type="PackedScene" uid="uid://cp8m6mhpg8xrb" path="res://scene/WoodCoin.tscn" id="11_gwku7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbfvw"]
 texture = ExtResource("2_2xpkg")
@@ -436,5 +437,23 @@ target_scene = "uid://we3d613uvhg5"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportArea" unique_id=2093069725]
 position = Vector2(8.5, -13.25)
 shape = SubResource("RectangleShape2D_3cfvr")
+
+[node name="coins" type="Node" parent="." unique_id=1692492009]
+
+[node name="WoodCoin" parent="coins" unique_id=1879951234 instance=ExtResource("11_gwku7")]
+position = Vector2(-83.00001, 17.000004)
+rotation = 5.6513762
+
+[node name="WoodCoin2" parent="coins" unique_id=1591508784 instance=ExtResource("11_gwku7")]
+position = Vector2(718, 58)
+rotation = 5.6513762
+
+[node name="WoodCoin3" parent="coins" unique_id=1681393804 instance=ExtResource("11_gwku7")]
+position = Vector2(1514, 27)
+rotation = 5.6513762
+
+[node name="WoodCoin4" parent="coins" unique_id=252848714 instance=ExtResource("11_gwku7")]
+position = Vector2(3103, 22)
+rotation = 5.6513762
 
 [connection signal="body_entered" from="teleportArea" to="player" method="_on_teleport_area_body_entered"]

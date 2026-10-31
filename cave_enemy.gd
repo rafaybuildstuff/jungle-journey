@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var max_health: int = 4
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var wall_ray: RayCast2D = $WallRay
+@onready var wall_ray: RayCast2D = $WallRay if has_node("WallRay") else null
 
 var current_health: int = 4
 var move_direction: int = 1 # 1 for RIGHT, -1 for LEFT
@@ -15,12 +15,14 @@ func _ready() -> void:
 	add_to_group("enemies")
 	current_health = max_health
 	
+	if animated_sprite:
+		animated_sprite.flip_h = (move_direction == 1)
+	
 	var hitbox = get_node_or_null("Area2D")
 	if hitbox and hitbox is Area2D:
 		hitbox.body_entered.connect(_on_hitbox_body_entered)
 
 func _physics_process(delta: float) -> void:
-	# Tick down turn cooldown timer
 	if turn_cooldown > 0:
 		turn_cooldown -= delta
 
@@ -34,13 +36,14 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall() and turn_cooldown <= 0:
 		_turn_around()
 
-	# 3. Check for Ledge Edge using RayCast2D
+	# 3. Clean Edge Check: Placed safely outside the spider's body
 	if is_on_floor() and wall_ray and turn_cooldown <= 0:
-		# Position ray ahead of the spider based on direction
-		wall_ray.target_position.x = move_direction * 20.0
+		# Place the ray well ahead at the feet, pointing down
+		wall_ray.position = Vector2(move_direction * 18.0, 10.0)
+		wall_ray.target_position = Vector2(0.0, 16.0)
 		wall_ray.force_raycast_update()
 		
-		# If there is no floor ahead, turn around before falling off
+		# If it stops hitting the floor, turn around
 		if not wall_ray.is_colliding():
 			_turn_around()
 
@@ -54,10 +57,9 @@ func _turn_around() -> void:
 		
 	move_direction *= -1
 	if animated_sprite:
-		animated_sprite.flip_h = (move_direction == -1)
+		animated_sprite.flip_h = (move_direction == 1)
 		
-	# Lock turning briefly so it steps safely away from the edge/wall
-	turn_cooldown = 0.3
+	turn_cooldown = 0.4
 
 # --- DAMAGE METHOD ---
 func take_damage(amount: int = 1) -> void:
@@ -79,7 +81,7 @@ func take_damage(amount: int = 1) -> void:
 		die()
 
 func die() -> void:
-	queue_free()
+	call_deferred("queue_free")
 
 # --- PLAYER COLLISION METHOD ---
 func _on_hitbox_body_entered(body: Node2D) -> void:

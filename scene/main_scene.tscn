@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://fwakvbdnk18c" path="res://scene/broadcast_banner.tscn" id="6_nfk4m"]
 [ext_resource type="Script" uid="uid://b66g8uyhgcvtk" path="res://teleport_area.gd" id="7_nfk4m"]
 [ext_resource type="FontFile" uid="uid://dpraaclvyj4et" path="res://assets/text.ttf" id="9_wr18j"]
+[ext_resource type="AudioStream" uid="uid://clboe45g4s132" path="res://music/forest bg soud.mp3" id="10_86xya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d5x1h"]
 texture = ExtResource("2_gyfs4")
@@ -137,5 +138,9 @@ offset_bottom = -4.0
 theme_override_fonts/font = ExtResource("9_wr18j")
 theme_override_font_sizes/font_size = 39
 text = "-->"
+
+[node name="background" type="AudioStreamPlayer2D" parent="." unique_id=1319643798]
+stream = ExtResource("10_86xya")
+volume_db = 10.0
 
 [connection signal="body_entered" from="TeleportArea" to="TeleportArea" method="_on_body_entered"]
