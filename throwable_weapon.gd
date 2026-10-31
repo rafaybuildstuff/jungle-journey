@@ -21,16 +21,18 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		return
 		
-	# Deal damage if the body has a health/damage function
+	# Deal damage if the body (like the Cave Enemy CharacterBody2D) has a take_damage method
 	if body.has_method("take_damage"):
-		body.take_damage(1)
+		body.take_damage(1) # Deals 1 damage (spider takes 3 hits to die)
 		
 	# Destroy the weapon on impact with walls, ground, or enemies
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	# Optional: Handle collisions with enemy hurtboxes/areas
-	if area.is_in_group("enemy"):
-		if area.has_method("take_damage"):
-			area.take_damage(1)
+	# Handle collisions if enemies use an Area2D hitbox
+	if area.has_method("take_damage"):
+		area.take_damage(1)
+		queue_free()
+	elif area.get_parent().has_method("take_damage"):
+		area.get_parent().take_damage(1)
 		queue_free()

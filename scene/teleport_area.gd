@@ -5,9 +5,9 @@ extends Area2D
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
-func _on_body_entered(_body: Node2D) -> void:
-	if target_scene:
-		# Call SceneTransition2 and the correct function name
-		SceneTransition2.change_scene_to_file(target_scene)
-	else:
-		print("Error: No target scene assigned!")
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		if target_scene:
+			SceneTransition2.change_scene_to_file(target_scene)
+		else:
+			print("Error: No target scene assigned!")
