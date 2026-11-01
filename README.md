@@ -13,4 +13,5 @@ This game is based on 3 levels
 * the cave scene (level 3) - Difficuilty Medium
 * the end scene (last level) - Escape
 
+How to play
 Playable URL: https://rafaybuildstuff.itch.io/jungle-journey
