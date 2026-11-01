@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b66g8uyhgcvtk" path="res://teleport_area.gd" id="8_6lxc3"]
 [ext_resource type="FontFile" uid="uid://dpraaclvyj4et" path="res://assets/text.ttf" id="9_dh7wu"]
 [ext_resource type="AudioStream" uid="uid://clboe45g4s132" path="res://music/forest bg soud.mp3" id="10_2cc28"]
+[ext_resource type="FontFile" uid="uid://bpj4blgcrtxw3" path="res://assets/heading.ttf" id="10_p4jqh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d5x1h"]
 texture = ExtResource("2_31qry")
@@ -117,19 +118,30 @@ region_rect = Rect2(79.361275, 138.16286, 80.638725, 21.837143)
 position = Vector2(862, -27)
 script = ExtResource("8_6lxc3")
 
-[node name="diresction" type="Label" parent="." unique_id=1275054509]
-z_index = -1
-offset_left = 533.0
-offset_top = -58.0
-offset_right = 582.0
-offset_bottom = -4.0
-theme_override_fonts/font = ExtResource("9_dh7wu")
-theme_override_font_sizes/font_size = 39
-text = "-->"
-
 [node name="background" type="AudioStreamPlayer2D" parent="." unique_id=1319643798]
 stream = ExtResource("10_2cc28")
 volume_db = 5.0
 autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=1092963075]
+z_index = -1
+offset_left = 349.0
+offset_top = -58.0
+offset_right = 457.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("9_dh7wu")
+theme_override_font_sizes/font_size = 11
+text = "Thanks for bringing 
+the log "
+
+[node name="Label2" type="Label" parent="." unique_id=447615674]
+z_index = -1
+offset_left = 523.0
+offset_top = -28.0
+offset_right = 873.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("10_p4jqh")
+theme_override_font_sizes/font_size = 35
+text = "THE END..."
 
 [connection signal="body_entered" from="TeleportArea" to="TeleportArea" method="_on_body_entered"]

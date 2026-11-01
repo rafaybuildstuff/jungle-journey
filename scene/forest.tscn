@@ -353,6 +353,7 @@ region_rect = Rect2(0, 0, 70, 73.07313)
 
 [node name="NewAsets13" type="Sprite2D" parent="extrass" unique_id=305955840]
 modulate = Color(1, 1, 1, 0.7764706)
+z_index = -1
 position = Vector2(-152, 13)
 texture = ExtResource("5_v5bin")
 region_enabled = true
